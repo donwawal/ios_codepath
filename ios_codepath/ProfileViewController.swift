@@ -10,23 +10,40 @@ import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var companyLabel: UILabel!
-    @IBOutlet weak var githubLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    var user: User!
     var rows: Int!
+    var courses: [Course]!
+    
+    var fullname: String!
+    var company: String!
+    var email: String!
+    var github: String!
+
+    var transition: BlurTransition!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        profileImageView.image = UIImage(named:"profile_photo")
         tableView.delegate = self
         tableView.dataSource = self
         
+        user = User()
+        
+        //Parse
         rows = 2
+        fullname = "Kristina Varshavskaya"
+        company = "Facebook"
+        email = "kristina@fb.com"
+        github = "@kristinavars"
+        
+        //Profile image
+        var frame = CGRectMake(0, 0, self.view.frame.size.width, 200)
+        var headerImageView = UIImageView(frame: frame)
+        var image: UIImage = UIImage(named: "profile_photo")!
+        headerImageView.image = image
+        tableView.tableHeaderView = headerImageView
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,14 +57,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let editProfileAction = UIAlertAction(title: "Edit Profile", style: .Default) { (alert: UIAlertAction!) -> Void in
             //present edit profile screen
-        self.performSegueWithIdentifier("editProfileSegue", sender: nil)
+            self.performSegueWithIdentifier("editProfileSegue", sender: nil)
         }
         
         let signOutAction = UIAlertAction(title: "Sign Out", style: .Default) { (alert: UIAlertAction!) -> Void in
-            // TBD
+            // TODO
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) -> Void in
-            //
+            //TODO
         }
         
         settingsMenu.addAction(editProfileAction)
@@ -62,35 +79,77 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 190
+        }
+        else {
+            return 92
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rows
+        if section == 0{
+            return 1
+        }
+        else {
+            return rows
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Achievements"
+        if section == 0 {
+            return nil
+        }
+        else {
+            return "Achievements"
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell") as! CourseCell
-        
-        UIImage(named: "class_icon")
-        cell.badgeImageView.image = UIImage(named: "class_icon")
-        cell.courseTitleLabel.text = "iOS for Designers"
-        cell.currentWeekLabel.text = "2"
-        cell.maxWeekLabel.text = "8"
-        
-        return cell
+        let section = indexPath.section
+        switch(section){
+        case 0:
+            let cell = tableView.dequeueReusableCellWithIdentifier("ContactInfoCell") as! ContactInfoCell
+            cell.fullNameLabel.text = fullname
+            cell.companyLabel.text = company
+            cell.githubLabel.text = email
+            cell.emailLabel.text = github
+            return cell
+            
+        default:
+            let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell") as! CourseCell
+//            let course = courses[indexPath.row]
+            
+            cell.badgeImageView.image = UIImage(named: "class_icon")
+            cell.courseTitleLabel.text = "iOS for Designers"
+            cell.currentWeekLabel.text = "2"
+            cell.maxWeekLabel.text = "8"
+            
+//            cell.badgeImageView.image = TBD
+//            cell.courseTitleLabel.text = course.name
+//            cell.currentWeekLabel.text = TBD
+//            cell.maxWeekLabel.text = String(course.numSessions)
+            
+            return cell
+        }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        
+        if segue.identifier == "editProfileSegue" {
+            var editProfileViewController = segue.destinationViewController as! EditProfileViewController
+            
+            editProfileViewController.user = user
 
+            editProfileViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+            transition = BlurTransition()
+            editProfileViewController.transitioningDelegate  = transition
+        }
+    }
 }

@@ -35,6 +35,9 @@
 		22B680771B6B0FDA00963A42 /* ios_codepathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B680761B6B0FDA00963A42 /* ios_codepathTests.swift */; };
 		22FED8231B769ACD00CE81BD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FED8221B769ACD00CE81BD /* LoginViewController.swift */; };
 		3346509DBE8C09C656FDE165 /* libPods-ios_codepath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD36AEAA9D946CA8CB19319 /* libPods-ios_codepath.a */; };
+		84481F921B77AD6C002EE9B3 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84481F911B77AD6C002EE9B3 /* ContactInfoCell.swift */; };
+		84481F941B77DD03002EE9B3 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84481F931B77DD03002EE9B3 /* BaseTransition.swift */; };
+		84481F971B77DDA0002EE9B3 /* BlurTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84481F961B77DDA0002EE9B3 /* BlurTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		22B680761B6B0FDA00963A42 /* ios_codepathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_codepathTests.swift; sourceTree = "<group>"; };
 		22FED8221B769ACD00CE81BD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		739718EE5CB351F4BE1FFF48 /* Pods-ios_codepath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_codepath.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios_codepath/Pods-ios_codepath.debug.xcconfig"; sourceTree = "<group>"; };
+		84481F911B77AD6C002EE9B3 /* ContactInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
+		84481F931B77DD03002EE9B3 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
+		84481F961B77DDA0002EE9B3 /* BlurTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurTransition.swift; sourceTree = "<group>"; };
 		959424332EA17F8CE8C7271A /* Pods-ios_codepath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_codepath.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios_codepath/Pods-ios_codepath.release.xcconfig"; sourceTree = "<group>"; };
 		AAD36AEAA9D946CA8CB19319 /* libPods-ios_codepath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios_codepath.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,6 +146,7 @@
 		22439CCA1B70470E0017E76B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84481F911B77AD6C002EE9B3 /* ContactInfoCell.swift */,
 				22A8AD4E1B769D150058C2BB /* FeedCell.swift */,
 				22A8AD5A1B769EB40058C2BB /* CourseCell.swift */,
 				22A8AD5C1B7711980058C2BB /* classmatesTableViewCell.swift */,
@@ -170,6 +177,7 @@
 		22B6805D1B6B0FD900963A42 /* ios_codepath */ = {
 			isa = PBXGroup;
 			children = (
+				84481F951B77DD20002EE9B3 /* Transitions */,
 				22439CCA1B70470E0017E76B /* Views */,
 				22439CC91B7047020017E76B /* View Controllers */,
 				22439CB81B7045470017E76B /* Models */,
@@ -214,6 +222,15 @@
 				AAD36AEAA9D946CA8CB19319 /* libPods-ios_codepath.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84481F951B77DD20002EE9B3 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				84481F931B77DD03002EE9B3 /* BaseTransition.swift */,
+				84481F961B77DDA0002EE9B3 /* BlurTransition.swift */,
+			);
+			name = Transitions;
 			sourceTree = "<group>";
 		};
 		9552007747AE40AF3F3BC51C /* Pods */ = {
@@ -361,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22439CBC1B7045BF0017E76B /* Event.swift in Sources */,
+				84481F941B77DD03002EE9B3 /* BaseTransition.swift in Sources */,
 				22A8AD4F1B769D150058C2BB /* FeedCell.swift in Sources */,
 				22439CC01B7045D80017E76B /* Topic.swift in Sources */,
 				22439CC81B7046160017E76B /* Rating.swift in Sources */,
@@ -371,11 +389,13 @@
 				22439CBE1B7045C80017E76B /* Course.swift in Sources */,
 				22A8AD561B769EAE0058C2BB /* EditProfileViewController.swift in Sources */,
 				22A8AD581B769EAE0058C2BB /* CurrentWeekViewController.swift in Sources */,
+				84481F971B77DDA0002EE9B3 /* BlurTransition.swift in Sources */,
 				22439CC41B7045F60017E76B /* CourseRecord.swift in Sources */,
 				22A8AD621B7711BC0058C2BB /* ClassmatesViewController.swift in Sources */,
 				22439CBA1B7045830017E76B /* Feed.swift in Sources */,
 				22439CCC1B704F4A0017E76B /* User.swift in Sources */,
 				22A8AD5B1B769EB40058C2BB /* CourseCell.swift in Sources */,
+				84481F921B77AD6C002EE9B3 /* ContactInfoCell.swift in Sources */,
 				22B680611B6B0FD900963A42 /* AppDelegate.swift in Sources */,
 				22A8AD4D1B769D0E0058C2BB /* FeedViewController.swift in Sources */,
 				22A8AD591B769EAE0058C2BB /* CourseOverviewViewController.swift in Sources */,

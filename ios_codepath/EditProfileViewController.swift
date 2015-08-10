@@ -14,6 +14,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var jobField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var githubField: UITextField!
+    var user: User!
     
     
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         githubField.delegate = self
         
         nameField.becomeFirstResponder()
+        
     }
 
     override func didReceiveMemoryWarning() {
