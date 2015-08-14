@@ -307,14 +307,14 @@
                                     <action selector="didPressYes:" destination="Lrq-pQ-k1y" eventType="touchUpInside" id="jWF-wM-OiU"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sad_face" translatesAutoresizingMaskIntoConstraints="NO" id="Rmu-P1-ZqY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad_face" translatesAutoresizingMaskIntoConstraints="NO" id="Rmu-P1-ZqY">
                                 <rect key="frame" x="95" y="129" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="YEi-h4-uHb"/>
                                     <constraint firstAttribute="height" constant="130" id="qR6-2E-26W"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hey, looks like you forgot to check in to class…where you there?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vML-su-wO2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey, looks like you forgot to check in to class…where you there?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vML-su-wO2">
                                 <rect key="frame" x="16" y="273" width="288" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="Prd-DW-leA"/>

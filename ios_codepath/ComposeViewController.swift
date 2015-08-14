@@ -25,7 +25,6 @@ class ComposeViewController: UIViewController{
         composeField.becomeFirstResponder()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        closeButton.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
